@@ -1,0 +1,94 @@
+﻿namespace WantedClothingStore.wwwroot {
+    : root
+
+{
+    --pink: #D9AAB7;
+    --rose: #BA7E7E;
+    --dark: #4E4E4E;
+}
+
+.container {
+    display: flex;
+    justify-content: space-between;
+}
+
+.images-and-sizes {
+    width: 50%;
+}
+
+    .images-and-sizes img {
+        width: 100%;
+        border-radius: 10px;
+    }
+
+.slideshow-buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+    .slideshow-buttons span {
+        width: 10px;
+        height: 10px;
+        border-radius: 50%;
+        background: var(--dark);
+        margin: 0 5px;
+    }
+
+    .slideshow-buttons .focus {
+        background: var(--rose);
+    }
+
+.product {
+    width: 40%;
+}
+
+    .product p {
+        text-transform: uppercase;
+    }
+
+    .product h1 {
+        font-size: 1.2em;
+        color: var(--dark);
+        margin-top: -5px;
+    }
+
+    .product h2 {
+        font-size: 1.5em;
+        color: var(--rose);
+    }
+
+.choose-size {
+    margin-top: 20px;
+}
+
+.sizes span {
+    display: inline-block;
+    width: 24px;
+    height: 24px;
+    border: 1px solid var(--dark);
+    text-align: center;
+    padding: 2px;
+    margin-right: 5px;
+    cursor: pointer;
+}
+
+.add-to-cart-btn {
+    background: #cda9ac;
+    padding: 10px;
+    display: inline-block;
+    outline: 0;
+    border-radius: 2px;
+    text-transform: uppercase;
+    color: #fff;
+    cursor: pointer;
+    margin-top: 20px;
+    border: none;
+    transition: background 0.3s;
+}
+
+    .add-to-cart-btn:hover {
+        background: var(--rose);
+    }
+
+}

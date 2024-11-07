@@ -1,0 +1,104 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WantedClothingStore.Models
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>WANTED STORE - @ViewData["Title"]</title>
+    <link rel="stylesheet" href="~/css/site.css">
+    <link rel="stylesheet" href="~/css/ProductDetail.css" />
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+            font-family: Arial, sans-serif;
+        }
+
+        .header {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            border-bottom: 2px solid #fff;
+        }
+
+        .header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+        }
+
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .navigation-link {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            border: 2px solid #fff;
+            color: #fff;
+            text-decoration: none;
+            font-weight: bold;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .navigation-link:hover {
+            background-color: #fff;
+            color: #000;
+        }
+
+        .main-content {
+            max-width: 1200px;
+            margin: 50px auto;
+            padding: 20px;
+        }
+
+        .footer {
+            background-color: #111;
+            padding: 20px;
+            text-align: center;
+            border-top: 2px solid #fff;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>WANTED STORE</h1>
+    </header>
+
+    <nav class="navigation">
+        <a href="@Url.Action("Index", "Home")" class="navigation-link">Home</a>
+        <a href="@Url.Action("Index", "MenProducts")" class="navigation-link">Men's Collection</a>
+        <a href="@Url.Action("Index", "WomenProducts")" class="navigation-link">Women's Collection</a>
+        <a href="@Url.Action("Index", "ComingSoon")" class="navigation-link">Coming Soon</a>
+        <a href="@Url.Action("Index", "Cart")" class="navigation-link">Your Cart</a>
+        <a href="@Url.Action("Index", "Contact")" class="navigation-link">Contact Us</a>
+
+        @if (SignInManager.IsSignedIn(User))
+        {
+            <span class="navigation-link">Welcome, @User.Identity.Name</span>
+            <a href="@Url.Action("Logout", "Account")" class="navigation-link">Logout</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Login", "Account")" class="navigation-link">Login</a>
+            <a href="@Url.Action("Register", "Account")" class="navigation-link">Register</a>
+        }
+    </nav>
+
+    <div class="main-content">
+        @RenderBody()
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 WANTED STORE. All rights reserved.</p>
+    </footer>
+
+    @RenderSection("Scripts", required: false)
+</body>
+</html>
